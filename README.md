@@ -1,2 +1,11 @@
-# Hackaton-Hack-the-Ocean
-Hackaton realizado por Launch X 2022, cierre de curso Backend
+# Hackaton: Hack the Ocean
+
+Para este proyecto estaremos realizando un sitio web donde se pretende recaudar fondos para organizaciones con la finalidad de operar acciones para salvar el oceano y las especies que habitan en ello.
+
+### Miembros del equipo:
+
+* Sergio López Loya
+* Fernando de la Fuente
+* Cristofer Alan Ángeles Soreano
+* Ramiro Zetina Suriano
+* Oscar Omar Gutiérrez López
