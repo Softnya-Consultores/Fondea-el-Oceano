@@ -8,6 +8,7 @@
     "linter": "node ./node_modules/eslint/bin/eslint.js",
     "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix",
     "start": "node index.js",
+    "serve": "node server.js",
     "migrate": "npx prisma migrate dev --name init"
   },
   "repository": {
