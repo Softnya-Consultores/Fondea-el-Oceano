@@ -18,3 +18,5 @@ app.get("/api/v1/projects", async (req, res) => {
     const allProjects =  await prisma.Project.findMany({});
     res.json(allProjects);
 });
+
+// probando.
