@@ -7,7 +7,7 @@
     "test": "node ./node_modules/jest/bin/jest.js",
     "linter": "node ./node_modules/eslint/bin/eslint.js",
     "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix",
-    "start": "node index.js",
+    "start": "vue-cli-service serve",
     "serve": "node server.js",
     "migrate": "npx prisma migrate dev --name init"
   },
@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/Softnya-Consultores/Hackaton-Hack-the-Ocean#readme",
   "devDependencies": {
+    "@vue/cli-plugin-babel": "^5.0.4",
+    "@vue/cli-service": "^5.0.4",
     "eslint": "^8.15.0",
     "eslint-plugin-vue": "^8.7.1",
     "jest": "^27.5.1",
@@ -29,6 +31,8 @@
   },
   "dependencies": {
     "@prisma/client": "^3.14.0",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "vue": "^3.2.33",
+    "vuex": "^4.0.2"
   }
 }
