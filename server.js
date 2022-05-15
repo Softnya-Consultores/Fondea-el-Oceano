@@ -4,6 +4,9 @@ app.use(express.json());
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 3000;
 
+app.set('views', './app/views');
+app.set('view engine', 'pug');
+
 const projects = require("./app/model/Projects");
 
 app.listen(port, () => {
@@ -11,13 +14,11 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-    res.json({
-        message: "Active server"
-    });
+    res.render('index.pug', { title: 'Hey', message: 'Hello there!'});
 });
 
 //CRUD proyectos
-app.get("/api/v1/projects", async (req, res) => {
+app.get("/v1/projects", async (req, res) => {
     const allProjects = await projects.getAllProjects();
     res.json(allProjects);
 });
