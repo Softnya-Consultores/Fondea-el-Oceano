@@ -11,7 +11,10 @@ const morgan = require('morgan');
 
 // enable files upload
 app.use(fileUpload({
-    createParentPath: true
+    createParentPath: true,
+    limits: { 
+        fileSize: 2 * 1024 * 1024 * 1024 //2MB max file(s) size
+    },
 }));
 
 //add other middleware
