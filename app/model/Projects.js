@@ -14,6 +14,11 @@ class Projects {
             LIMIT 1
         `, [id]);
     }
+    static createProject(project) {
+        return db.query(`
+            INSERT INTO projects SET ?
+        `, project);
+    }
 }
 
 module.exports = Projects;

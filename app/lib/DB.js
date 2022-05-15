@@ -12,6 +12,16 @@ class DB {
         this.connection.connect();
     }
 
+    static query(sql, args) {
+        return new Promise((resolve, reject) => {
+            this.connection.query(sql, args, (err, result) => {
+                if (err)
+                    return reject(err);
+                resolve(result);
+            });
+        });
+    }
+
     static loadAssocList(sql, args) {
         return new Promise((resolve, reject) => {
             this.connection.query(sql, args, (err, rows) => {

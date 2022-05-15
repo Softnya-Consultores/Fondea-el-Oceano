@@ -29,7 +29,7 @@ app.get("/v1/projects/:id", async (req, res) => {
 });
 app.post("/v1/projects", async (req, res) => {
     const project = await projects.createProject(req.body);
-    res.json(project);
+    res.json({"inserted": project.insertId > 0 ? true : false});
 });
 
 // probando.
