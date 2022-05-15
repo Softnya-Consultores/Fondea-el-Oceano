@@ -4,7 +4,7 @@ app.use(express.json());
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 3000;
 
-const projects = require("./app/model/projects");
+const projects = require("./app/model/Projects");
 
 app.listen(port, () => {
     console.log(`Listening to requests on port ${port}`);
