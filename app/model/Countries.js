@@ -2,7 +2,7 @@ const db = require("./../lib/DB");
 db.connect();
 
 class Countries {
-    static getCountries() {
+    static getAllCountries() {
         return db.loadAssocList(`
             SELECT *, IF(country_code="MX", true, false) selected FROM countries
             WHERE published = 1
