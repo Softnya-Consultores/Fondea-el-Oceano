@@ -9,6 +9,7 @@ const port = process.env.PORT || 3000;
 
 const projects = require("./app/model/Projects");
 const countries = require("./app/model/Countries");
+const categories = require("./app/model/Categories");
 
 app.listen(port, () => {
     console.log(`Listening to requests on port ${port}`);
@@ -23,6 +24,12 @@ app.get("/", (req, res) => {
 app.get("/countries", async (req, res) => {
     const allCountries = await countries.getAllCountries();
     res.json(allCountries);
+});
+
+//categorias
+app.get("/v1/categories", async (req, res) => {
+    const allCategories = await categories.getAllCategories();
+    res.json(allCategories);
 });
 
 //CRUD proyectos
