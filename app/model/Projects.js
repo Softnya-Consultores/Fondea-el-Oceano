@@ -3,9 +3,16 @@ db.connect();
 
 class Projects {
     static getAllProjects() {
-        return db.query(`
+        return db.loadAssocList(`
             SELECT * FROM projects
         `);
+    }
+    static getProjectById(id) {
+        return db.loadAssoc(`
+            SELECT * FROM projects
+            WHERE id = ?
+            LIMIT 1
+        `, [id]);
     }
 }
 
