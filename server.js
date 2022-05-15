@@ -31,5 +31,13 @@ app.post("/v1/projects", async (req, res) => {
     const project = await projects.createProject(req.body);
     res.json({"inserted": project.insertId > 0 ? true : false});
 });
+app.put("/v1/projects/:id", async (req, res) => {
+    const project = await projects.updateProject(req.params.id, req.body);
+    res.json({"updated": project.affectedRows > 0 ? true : false});
+});
+app.delete("/v1/projects/:id", async (req, res) => {
+    const project = await projects.deleteProject(req.params.id);
+    res.json({"deleted": project.affectedRows > 0 ? true : false});
+});
 
 // probando.

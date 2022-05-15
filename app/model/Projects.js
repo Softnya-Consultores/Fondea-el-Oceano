@@ -19,6 +19,19 @@ class Projects {
             INSERT INTO projects SET ?
         `, project);
     }
+    static updateProject(id, project) {
+        return db.query(`
+            UPDATE projects SET ?
+            WHERE id = ?
+        `, [project, id]);
+    }
+    static deleteProject(id) {
+        return db.query(`
+            DELETE FROM projects
+            WHERE id = ?
+        `, [id]);
+    }
+    
 }
 
 module.exports = Projects;
