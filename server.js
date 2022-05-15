@@ -1,9 +1,24 @@
+/* eslint-disable no-undef */
 const express = require("express");
 const app = express();
 app.use(express.json());
-// eslint-disable-next-line no-undef
 const port = process.env.PORT || 3000;
 
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+
+// enable files upload
+app.use(fileUpload({
+    createParentPath: true
+}));
+
+//add other middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(morgan('dev'));
 
 const projects = require("./app/controller/ProjectsController");
 const countries = require("./app/model/Countries");
@@ -39,11 +54,11 @@ app.get("/v1/projects/:id", async (req, res) => {
     res.json(project);
 });
 app.post("/v1/projects", async (req, res) => {
-    const project = await projects.createProject(req.body);
+    const project = await projects.createProject(req.body, req);
     res.json({"inserted": project.insertId > 0 ? true : false});
 });
 app.put("/v1/projects/:id", async (req, res) => {
-    const project = await projects.updateProject(req.params.id, req.body);
+    const project = await projects.updateProject(req.params.id, req.body, req);
     res.json({"updated": project.affectedRows > 0 ? true : false});
 });
 app.delete("/v1/projects/:id", async (req, res) => {
