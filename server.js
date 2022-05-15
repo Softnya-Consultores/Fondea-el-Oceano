@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 //paises
-app.get("/countries", async (req, res) => {
+app.get("/v1/countries", async (req, res) => {
     const allCountries = await countries.getAllCountries();
     res.json(allCountries);
 });
