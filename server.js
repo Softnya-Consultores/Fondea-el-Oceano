@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 //app.set('view engine', 'pug');
 
 const projects = require("./app/model/Projects");
+const countries = require("./app/model/Countries");
 
 app.listen(port, () => {
     console.log(`Listening to requests on port ${port}`);
@@ -16,6 +17,12 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
     //res.render('index.pug', { title: 'Hey', message: 'Hello there!'});
     res.json({ message: "Server is running" });
+});
+
+//paises
+app.get("/countries", async (req, res) => {
+    const allCountries = await countries.getCountries();
+    res.json(allCountries);
 });
 
 //CRUD proyectos
