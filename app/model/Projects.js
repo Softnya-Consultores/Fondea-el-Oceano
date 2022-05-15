@@ -8,13 +8,20 @@ class Projects {
                 CONCAT(c.country_code, ': ', c.country_name) AS country,
                 CONCAT(ca.name) AS category
             FROM projects p
-            LEFT JOIN countries c ON (p.country = c.id AND c.published = 1)
-            LEFT JOIN categories ca ON (p.association_type = ca.id AND ca.published = 1)
+                LEFT JOIN countries c ON (p.country = c.id AND c.published = 1)
+                LEFT JOIN categories ca ON (p.association_type = ca.id AND ca.published = 1)
+            WHERE p.published = 1
+            ORDER BY p.id DESC
         `);
     }
     static getProjectById(id) {
         return db.loadAssoc(`
-            SELECT * FROM projects
+            SELECT *,
+                CONCAT(c.country_code, ': ', c.country_name) AS country,
+                CONCAT(ca.name) AS category
+            FROM projects p
+                LEFT JOIN countries c ON (p.country = c.id AND c.published = 1)
+                LEFT JOIN categories ca ON (p.association_type = ca.id AND ca.published = 1)
             WHERE id = ?
             LIMIT 1
         `, [id]);
