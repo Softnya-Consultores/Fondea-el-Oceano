@@ -4,8 +4,6 @@ app.use(express.json());
 // eslint-disable-next-line no-undef
 const port = process.env.PORT || 3000;
 
-//app.set('views', './app/views');
-//app.set('view engine', 'pug');
 
 const projects = require("./app/controller/ProjectsController");
 const countries = require("./app/model/Countries");
@@ -16,7 +14,6 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-    //res.render('index.pug', { title: 'Hey', message: 'Hello there!'});
     res.json({ message: "Server is running" });
 });
 
@@ -53,5 +50,3 @@ app.delete("/v1/projects/:id", async (req, res) => {
     const project = await projects.deleteProject(req.params.id);
     res.json({"deleted": project.affectedRows > 0 ? true : false});
 });
-
-// probando.
