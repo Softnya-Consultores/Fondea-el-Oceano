@@ -9,6 +9,7 @@ class ProjectsController {
     }
     static createProject(project, req) {
         project.image = uploadImage(req);
+        project.published = 0;//despublicado para revision
         return proyectModel.createProject(project);
     }
     static updateProject(id, project, req) {
