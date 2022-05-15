@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 //app.set('views', './app/views');
 //app.set('view engine', 'pug');
 
-const projects = require("./app/model/Projects");
+const projects = require("./app/controller/ProjectsController");
 const countries = require("./app/model/Countries");
 const categories = require("./app/model/Categories");
 
