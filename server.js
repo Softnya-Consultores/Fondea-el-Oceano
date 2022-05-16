@@ -52,6 +52,8 @@ app.get("/v1/projects", async (req, res) => {
     const allProjects = await projects.getAllProjects();
     res.json(allProjects);
 });
+
+
 app.get("/v1/projects/:id", async (req, res) => {
     const project = await projects.getProjectById(req.params.id);
     res.json(project);
@@ -68,3 +70,4 @@ app.delete("/v1/projects/:id", async (req, res) => {
     const project = await projects.deleteProject(req.params.id);
     res.json({"deleted": project.affectedRows > 0 ? true : false});
 });
+
