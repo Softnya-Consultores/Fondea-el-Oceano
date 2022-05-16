@@ -6,7 +6,7 @@ db.connect();
 describe(" test", () => {
     test("Test Order", async () => {
         const consulta = await categories.getAllCategories();
-        expect(consulta[0].name).toBe("Coral reefs");
+        expect(consulta[0].name).toBe("Cora reefs");
         
     });
     
