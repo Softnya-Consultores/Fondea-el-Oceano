@@ -1,5 +1,4 @@
 const db = require("./../lib/DB");
-db.connect();
 
 class Categories {
     static getAllCategories() {

@@ -12,9 +12,15 @@ class DB {
         this.connection.connect();
     }
 
+    static close() {
+        this.connection.end();
+    }
+
     static query(sql, args) {
+        this.connect();
         return new Promise((resolve, reject) => {
             this.connection.query(sql, args, (err, result) => {
+                this.close();
                 if (err)
                     return reject(err);
                 resolve(result);
@@ -23,8 +29,10 @@ class DB {
     }
 
     static loadAssocList(sql, args) {
+        this.connect();
         return new Promise((resolve, reject) => {
             this.connection.query(sql, args, (err, rows) => {
+                this.close();
                 if (err)
                     return reject(err);
                 resolve(rows);
@@ -32,8 +40,10 @@ class DB {
         });
     }
     static loadAssoc(sql, args) {
+        this.connect();
         return new Promise((resolve, reject) => {
             this.connection.query(sql, args, (err, row) => {
+                this.close();
                 if (err)
                     return reject(err);
                 if(row.length === 0) row = [];
