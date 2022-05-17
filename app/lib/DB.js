@@ -9,7 +9,7 @@ class DB {
             database : 'fondeaeloceano'
         });
 
-        this.connection.connect();
+        
     }
 
     static close() {
