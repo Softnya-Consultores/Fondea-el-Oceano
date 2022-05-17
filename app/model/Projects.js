@@ -15,13 +15,13 @@ class Projects {
     }
     static getProjectById(id) {
         return db.loadAssoc(`
-            SELECT *,
+            SELECT p.*,
                 CONCAT(c.country_code, ': ', c.country_name) AS country,
                 CONCAT(ca.name) AS category
             FROM projects p
                 LEFT JOIN countries c ON (p.country = c.id AND c.published = 1)
                 LEFT JOIN categories ca ON (p.association_type = ca.id AND ca.published = 1)
-            WHERE id = ?
+            WHERE p.id = ?
             LIMIT 1
         `, [id]);
     }
