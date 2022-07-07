@@ -4,9 +4,9 @@ class DB {
         const mysql      = require('mysql');
         this.connection = mysql.createConnection({
             host     : 'fondeaeloceano.xyz',
-            user     : 'launchx',
-            password : '&Op15b5c7',
-            database : 'fondeaeloceano'
+            user     : 'sql_fondeaeloceano_xyz',
+            password : 'EFbpEBccTCPJtAWi',
+            database : 'sql_fondeaeloceano_xyz'
         });
 
         this.connection.connect();
