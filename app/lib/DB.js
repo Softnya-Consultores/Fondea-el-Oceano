@@ -3,7 +3,7 @@ class DB {
     static connect() {
         const mysql      = require('mysql');
         this.connection = mysql.createConnection({
-            host     : 'localhost',
+            host     : 'fondeaeloceano.xyz',
             user     : 'sql_fondeaeloceano_xyz',
             password : 'EFbpEBccTCPJtAWi',
             database : 'sql_fondeaeloceano_xyz'
