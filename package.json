@@ -4,7 +4,7 @@
   "description": "Hackaton realizado por Launch X 2022, cierre de curso Backend",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js",
+    "test": "jest --runInBand --detectOpenHandles --forceExit",
     "linter": "node ./node_modules/eslint/bin/eslint.js",
     "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix",
     "start": "node server.js",

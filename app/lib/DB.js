@@ -8,8 +8,8 @@ class DB {
             password : 'EFbpEBccTCPJtAWi',
             database : 'sql_fondeaeloceano_xyz'
         });
-
-        this.connection.connect();
+         
+        
     }
 
     static close() {
